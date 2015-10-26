@@ -1,0 +1,307 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+Timer=0;
+$(function(){
+	 
+	autoHeight();
+		
+	$(window).resize(function(){
+		clearTimeout(Timer);
+		Timer=setTimeout(function(){
+		autoHeight();
+		},300)
+	});
+	
+
+
+
+var w = $(window).width();
+
+
+//鼠标滚动事件 
+var mouse = true;
+
+var wheel = function(event) {
+	var delta = 0;
+	if (!event)
+	event = window.event;
+	if (event.wheelDelta) {
+	delta = event.wheelDelta / 120;
+	} else if (event.detail) {
+	delta = -event.detail / 3;
+	}
+	if (delta) handle(delta);
+	if (event.preventDefault) event.preventDefault();
+	event.returnValue = false;
+}
+
+
+if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+
+document.onmousewheel = wheel;
+
+var $f = true;
+
+var handle = function(delta) {
+	if (!mouse) return;
+	mouse = false;
+	var random_num = Math.floor((Math.random() * 100) + 50);
+	if (delta < 0) {
+	PicWheelScroll(1);
+	$f = false;
+	//console.log("鼠标滑轮向下滚动：" + delta + "次！"); // 1  
+	return false;
+	} else {
+	$f = true;
+	PicWheelScroll(0);
+	//console.log("鼠标滑轮向上滚动：" + delta + "次！"); // -1  
+	return false;
+	}
+}
+$(".ac").each(function(i) {
+	$(this).click(function() {
+	$(".ac").removeClass("active");
+	$(".ac").eq(i).addClass("active");
+
+	var num = i + 1;
+	gotoAnchor($(".dom" + num));
+	getAnchroFun(num);
+
+	})
+})
+
+
+var PicWheelScroll = function(n) {
+	var num = $("#main_guide").attr("num");
+	if ((num === 6 && n === 1) || (num === 1 && n === 0)) return;
+	if (n == 1) {
+	if (num < 6) num++;
+	} else {
+	if (num > 1) num--;
+	}
+	if (num == 6){
+	//$('#nag').hide();	
+	}else{
+	$('#nag').show();	
+	}
+	
+	$(".ac").removeClass("active");
+	$(".ac").eq(num - 1).addClass("active");
+
+	gotoAnchor($(".dom" + num));
+	getAnchroFun(num);
+}
+
+
+var getAnchroFun = function(num) {
+	var h = $(window).height();
+	var h = (h - 500 < 30 ? 30 : h - 580) + "px";
+	var n = $("#main_guide").attr("num");
+	$("#main_guide").attr("num", num);
+}
+
+
+	var gotoAnchor = function(selector) {
+	var anchor = $(selector);
+	if (anchor.length < 0) return;
+
+	var iee=$(window.document.documentElement)[0]+"";
+	var $body;
+	//alert(iee);
+	if(iee=="[object]"){
+		$body = $(window.document.documentElement);
+	
+	}else{
+		$body = $(window.document.body);
+		 if(navigator.userAgent.indexOf("MSIE 8.0")>0  || navigator.userAgent.indexOf("MSIE 9.0")>0)  
+		{  
+			$body = $(window.document.documentElement);
+		}
+	}
+	
+	var pos = anchor.offset();
+	$body.animate({
+		"scrollTop": pos.top
+		}, {
+		queue: false,
+		complete: function() {
+		mouse = true;
+		}
+		});
+	
+}
+gotoAnchor($(".dom1"));
+//gotoAnchor($(".dom1"));
+
+	
+});
+
+
+function autoHeight(){
+	var h = $(window).height();
+	var widthn=$(window).width()/1920;
+	if(navigator.userAgent.indexOf("MSIE 8.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0  || navigator.userAgent.indexOf("MSIE 9.0")>0)  {
+		$(".back").css("height", 900 + "px");
+		$(".dom6").css("height", 380*widthn + "px");
+	}else{
+		$(".back").css("height", h + "px");
+		$(".dom6").css("height", 380*widthn + "px");
+		$("body").css("overflow","hidden");
+	}
+	//var str1=h/900;
+	//zoom(".area" ,str1);
+	
+};
+
+$(function(){
+	var widthn=$(window).width()/1920;
+	dom1(widthn);
+	dom2(widthn);
+	dom3(widthn);
+	dom4(widthn);
+	dom5(widthn);
+	dom6(widthn);
+});
+$(window).resize(function(){
+	var widthn=$(window).width()/1920;
+	dom1(widthn);
+	dom2(widthn);
+	dom3(widthn);
+	dom4(widthn);
+	dom5(widthn);
+	dom6(widthn);
+});
+function dom1(n){
+	var ml=($(window).width()-1014*n)/2;
+	var mt=($(window).height()-480*n)/2;
+	$(".dom1").find("img").css("width",1014*n).css("margin-left",ml).css("margin-top",mt);
+}
+function dom2(n){
+	$(".dom2_pic1").css("width",924*n).css("bottom",50*n);
+	$(".dom2_pic2").css("width",424*n).css("top",250*n).css("right",300*n);
+	$(".dom2_pic3").css("width",622*n).css("bottom",50*n).css("right",250*n);
+}
+function dom3(n){
+	$(".dom3_pic1").css("width",1000*n);
+	$(".dom3_pic2").css("width",572*n).css("top",250*n).css("left",300*n);
+	$(".dom3_pic3").css("width",300*n).css("bottom",130*n).css("left",300*n);
+}
+function dom4(n){
+	$(".dom4_pic1").css("width",620*n).css("left",280*n).css("top",220*n);
+	$(".dom4_pic2").css("width",590*n).css("top",220*n).css("right",280*n);
+	$(".dom4_pic3").css("width",926*n);
+}
+function dom5(n){
+	var ml1=($(window).width()-644*n)/2;
+	var ml2=($(window).width()-1440*n)/2;
+	var ml3=($(window).width()-440*n)/2;
+	$(".dom5_pic1").css("width",644*n).css("margin-left",ml1).css("margin-top",220*n);
+	$(".dom5_pic2").css("width",1440*n).css("margin-left",ml2).css("margin-top",80*n);
+	$(".dom5_pic3").css("width",372*n).css("left",300*n).css("bottom",40*n);
+	$(".dom5_pic4").css("width",440*n).css("left",ml3).css("bottom",40*n);
+	$("#dom5_pic5").css("right",230*n).css("bottom",40*n);
+	$(".dom5_pic5").css("width",362*n);
+	$(".dom5_pic6").css("width",80*n);
+}
+function dom6(n){
+	$(".dom6_pic2").css("width",224*n).css("bottom",60*n).css("right",270*n);
+	$(".dom6_pic1").css("width",520*n).css("margin-left",270*n).css("margin-top",60*n).css("margin-bottom",60*n);
+	$(".dom6").height(380*n);
+}
+
+function zoom2(strId,strNum){
+	
+	var str=strNum;
+	if($.support.msie){ 
+		$(strId).css("-ms-transform","scale("+str+")"); 
+		$(strId).css("-ms-transform-origin","top center");
+	} 
+	else if($.support.safari){ 
+		$(strId).css("-webkit-transform","scale("+str+")"); 
+		$(strId).css("-webkit-transform-origin","top center");
+	} 
+	else if($.support.mozilla) { 
+		$(strId).css("-moz-transform","scale("+str+")"); 
+		$(strId).css("-moz-transform-origin","top center");
+	} 
+	else if($.support.opera) { 
+		$(strId).css("-o-transform","scale("+str+")"); 
+		$(strId).css("-o-transform-origin","top center");
+	} 
+	else { 
+		$(strId).css("transform","scale("+str+")"); 
+		$(strId).css("transform-origin","top center");
+	}
+}
+
+</script>
+
+<title>Ilincar</title>
+</head>
+<body>
+<div class="head">
+	<img src="images/logo.png" class="logo" height="60">
+    <ul class="nag" id="nag" style="display:block;">
+        <li class="ac active"><span><img src="images/head_pic1.png"></span></li>
+        <li class="ac" style="position:absolute;bottom:-2px;height:0px;right:108px;display:none;"><span></span></li>
+        <li class="ac" style="position:absolute;bottom:-2px;height:0px;right:108px;display:none;"><span></span></li>
+        <li class="ac" style="position:absolute;bottom:-2px;height:0px;right:108px;display:none;"><span></span></li>
+        <li class="ac" style="z-index:100;"><span><img src="images/head_pic2.png"></span></li>
+        <li class="ac"><span><img src="images/head_pic3.png"></span></li>
+    </ul>
+</div>
+
+<div id="main_guide" num="1">
+	<div class="back dom1">
+        <div class="area" style="">
+			<div class="cnt">
+                <span><img src="images/page1_pic.png" style="width:1024px;"></span>
+                
+            </div>
+        </div>
+    </div>
+    <div class="back dom2" id="J-2">
+        <div class="area" style="">
+			<img src="images/page2_pic1.png" class="dom2_pic1">
+            <img src="images/page2_pic2.png" class="dom2_pic2">
+            <img src="images/page2_pic3.png" class="dom2_pic3">
+        </div>
+    </div>
+    <div class="back dom3" id="J-3">
+        <div class="area" style="">
+			<img src="images/page3_pic1.png" class="dom3_pic1">
+            <img src="images/page3_pic2.png" class="dom3_pic2">
+            <img src="images/page3_pic3.png" class="dom3_pic3">
+        </div>
+    </div>
+    <div class="back back2 dom4" id="J-4">
+        <div class="area" style="">
+			<img src="images/page4_pic1.png" class="dom4_pic1">
+            <img src="images/page4_pic2.png" class="dom4_pic2">
+            <img src="images/page4_pic3.png" class="dom4_pic3">
+        </div>
+    </div>
+    <div class="back dom5"  id="J-5">
+        <div class="area" style="">
+			<img src="images/page5_pic1.png" class="dom5_pic1">
+            <img src="images/page5_pic2.png" class="dom5_pic2">
+            <img src="images/page5_pic3.png" class="dom5_pic3">
+            <img src="images/page5_pic4.png" class="dom5_pic4">
+            <span id="dom5_pic5"><img src="images/page5_pic5.png" class="dom5_pic5"><a href="#J-6"><img src="images/page5_pic6.png" class="dom5_pic6"></a></span>
+        </div>
+    </div>
+    <div class="back dom6"  id="J-6">
+        <div class="area" style="">
+			<img src="images/page6_pic1.png" class="dom6_pic1">
+            <img src="images/ilincar_qrcode.png" class="dom6_pic2">
+        </div>
+    </div>
+</div>
+</body>
+</html>

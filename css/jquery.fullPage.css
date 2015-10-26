@@ -1,0 +1,50 @@
+/*xiexiru 2015-03-26*/
+body{padding:0;margin:0;}
+.back *{font-family:"Microsoft YaHei",Arial, Helvetica, sans-serif;border:none;}
+.back{overflow:hidden;}
+.back .area{position:relative;width:100%;height:100%;}
+
+.dom1{background:url(../images/page1.jpg) center center;background-size:100% auto;}
+.dom1 .cnt span{display:block;}
+.dom1 .cnt span img{display:block;}
+
+.dom2{background:url(../images/page2.jpg) center center;background-size:100% auto;position:relative;}
+.dom2_pic1{width:924px;position:absolute;left:0;}
+.dom2_pic2{width:424px;position:absolute;}
+.dom2_pic3{width:622px;position:absolute;}
+
+.dom3{background:url(../images/page3.jpg) center center;background-size:100% auto;}
+.dom3_pic1{width:1000px;position:absolute;right:0;top:0;}
+.dom3_pic2{width:572px;position:absolute;}
+.dom3_pic3{width:300px;position:absolute;}
+
+.dom4{background:url(../images/page4.jpg) center center;background-size:100% auto;}
+.dom4_pic1{width:620px;position:absolute;}
+.dom4_pic2{width:590px;position:absolute;}
+.dom4_pic3{width:926px;position:absolute;right:0;bottom:0;}
+
+
+.dom5{background:url(../images/page5.jpg) center center;background-size:100% auto;}
+.dom5 span{display:inline-block;position:absolute;}
+.dom5_pic1{width:644px;}
+.dom5_pic2{width:1440px;}
+.dom5_pic3{width:372px;position:absolute;}
+.dom5_pic4{width:420px;position:absolute;}
+.dom5_pic5{width:362px;}
+.dom5_pic6{width:80px;}
+.dom5 a:hover img{background:rgba(255,255,255,0.3);}
+
+.dom6{background:#171717;}
+.dom6_pic2{width:244px;position:absolute;}
+
+.head{position:fixed;left:0;top:0;height:70px;background:#000;width:100%;z-index:100;}
+.head img.logo{position:absolute;left:20px;top:5px;}
+.head .nag{position:absolute;right:10px;top:0;margin:0;}
+.nag li{list-style:none;height:68px;line-height:68px;text-align:center;display:inline-block;}
+.nag li{width:100px;display:inline-block;}
+.nag li span{color:#fff;height:68px;line-height:68px;display:inline-block;}
+.nag li.active{border-bottom:2px #0056a7 solid;}
+.nag li span img{display:inline-block;width:75px;margin-top:25px;}
+
+
+

@@ -1,0 +1,189 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Ilincar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/phone.css">
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+	
+    <!-- Swiper -->
+    <div class="swiper-container swiper-container-vertical">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide-active" style="height: 219px;">
+            	<div class="dom dom1">
+                	<img src="img/page1_pic1.png" class="dom1_pic1">
+                    <img src="img/page1_pic2.png" class="dom1_pic2">
+                </div>
+            </div>
+            <div class="swiper-slide swiper-slide-next" style="height: 219px;">
+            	<div class="dom dom2">
+                	<img src="img/page2_pic1.png" class="dom2_pic1">
+                    <img src="img/page2_pic2.png" class="dom2_pic2">
+                    <img src="img/page2_pic3.png" class="dom2_pic3">
+                </div>
+            </div>
+            <div class="swiper-slide" style="height: 219px;">
+            	<div class="dom dom3">
+                	<img src="img/page3_pic1.png" class="dom3_pic1">
+                    <img src="img/page3_pic2.png" class="dom3_pic2">
+                    <img src="img/page3_pic3.png" class="dom3_pic3">
+                </div>
+            </div>
+            <div class="swiper-slide" style="height: 219px;">
+            	<div class="dom dom4">
+                	<img src="img/page4_pic1.png" class="dom4_pic1">
+                    <img src="img/page4_pic2.png" class="dom4_pic2">
+                    <img src="img/page4_pic3.png" class="dom4_pic3">
+                </div>
+            </div>
+            <div class="swiper-slide" style="height: 219px;">
+            	<div class="dom dom5">
+                	<img src="img/page5_pic1.png" class="dom5_pic1">
+                    <img src="img/page5_pic2.png" class="dom5_pic2">
+                    <img src="img/page5_pic3.png" class="dom5_pic3">
+                    <a href="javascript:" id="qrcode"><img src="img/page5_pic6.png" class="dom5_pic4"></a>
+                </div>
+            </div>
+            <div class="swiper-slide" style="height: 219px;">
+            	<div class="dom dom6">
+                	<img src="img/page6_pic1.png" class="dom6_pic1">
+                    <img src="img/ilincar_qrcode.png" class="dom6_pic2">
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-clickable"></div>
+    </div>
+	<div class="head">
+    	<img src="img/nav_logo.png" style="height:30px;">
+        <a href="#" onClick="$(this).next().slideToggle();$('.swiper-pagination').toggle();"><img src="img/nav_more_nor.png" style="height:30px;"></a>
+        <div style="display:none;">
+        	<label id="btn1"><img src="img/head_pic1.png" style="height:14px;"></label>
+            <label id="btn2"><img src="img/head_pic2.png" style="height:14px;"></label>
+            <label id="btn6"><img src="img/head_pic3.png" style="height:14px;"></label>
+        </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			direction: 'vertical'
+		});
+    </script>
+    <script>
+		$(function(){
+			var n=$(window).width()/828;
+			$(".dom ").height($(window).height());
+			dom1(n);
+			dom2(n);
+			dom3(n);
+			dom4(n);
+			dom5(n);
+			dom6(n);
+			$(".head div").find("label").click(function(){
+				$(this).parent().slideUp();
+				$('.swiper-pagination').toggle();
+			});
+			$("#btn1").click(function(){
+				$(".swiper-pagination").find("span:eq(0)").click().click();
+			});
+			$("#btn2").click(function(){
+				$(".swiper-pagination").find("span:eq(4)").click().click();
+			});
+			$("#btn6").click(function(){
+				$(".swiper-pagination").find("span:eq(5)").click().click();
+			});
+			$("#qrcode").click(function(){
+				$(".swiper-pagination").find("span:eq(5)").click().click();
+			});
+		});
+		$(window).resize(function(){
+			dom1(n);
+			dom2(n);
+			dom3(n);
+			dom4(n);
+			dom5(n);
+			dom6(n);
+		});
+		function dom1(n){
+			$(".dom1_pic1").css("width",828*n).css("margin-top",n*330);
+			$(".dom1_pic2").css("width",828*n).css("bottom",n*250);
+		}
+		function dom2(n){
+			$(".dom2_pic1").css("width",350*n).css("top",n*200).css("right",n*50);
+			$(".dom2_pic2").css("width",551*n).css("bottom",n*370);
+			$(".dom2_pic3").css("width",828*n).css("bottom",n*40);
+		}
+		function dom3(n){
+			var m=$(window).width()/624;
+			$(".dom3_pic1").css("width",462*m);
+			$(".dom3_pic2").css("width",190*n).css("top",n*250).css("left",n*70);
+			$(".dom3_pic3").css("width",246*m).css("bottom",n*150).css("left",n*70);
+		}
+		function dom4(n){
+			var m=$(window).width()/624;
+			$(".dom4_pic1").css("width",510*n).css("top",n*200).css("left",n*50);
+			$(".dom4_pic2").css("width",420*n).css("top",n*470).css("left",n*50);
+			$(".dom4_pic3").css("width",442*m).css("bottom",n*40);
+		}
+		function dom5(n){
+			var m=$(window).width()/624;
+			var ml=($(window).width()-440*m)/2;
+			$(".dom5_pic1").css("width",550*n).css("margin-top",n*230);
+			$(".dom5_pic2").css("width",730*n).css("margin-top",n*330);
+			$(".dom5_pic3").css("width",440*m).css("left",ml).css("bottom",n*120);
+			$(".dom5_pic4").css("width",50*m).css("left",ml+m*230).css("bottom",n*100);
+		}
+		function dom6(n){
+			$(".dom6_pic1").css("width",520*n).css("top",n*200).css("left",n*50);
+			$(".dom6_pic2").css("width",140*n).css("top",n*200).css("right",n*50);
+		}
+	</script>
+    
+
+</body></html>

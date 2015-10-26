@@ -1,0 +1,49 @@
+/*xiexiru 2015-10-24*/
+.swiper-slide{position:relative;}
+.swiper-container-vertical>.swiper-pagination{left:0;right:auto;top:62px;width:100%;position:fixed;z-index:20000;background:none;display:none;}
+.swiper-container-vertical>.swiper-pagination .swiper-pagination-bullet{display:none;background:none;width:30%;height:40px;margin:0;border-radius:0;}
+.swiper-container-vertical>.swiper-pagination span:nth-child(1){display:inline-block;}
+.swiper-container-vertical>.swiper-pagination span:nth-child(2){display:inline-block;}
+.swiper-container-vertical>.swiper-pagination span:nth-child(6){display:inline-block;}
+
+.head{position:fixed;left:0;top:0;height:44px;background:#000;width:100%;z-index:100;}
+.head>img{margin-left:10px;margin-top:7px;}
+.head>a{position:absolute;right:10px;top:7px;}
+.head div{position:absolute;left:0;top:44px;background:rgba(0,0,0,0.7);height:40px;width:100%;text-align:center;}
+.head div label{width:32%;display:inline-block;line-height:40px;height:40px;}
+.head div label img{display:inline-block;margin-top:13px;}
+
+.dom{width:100%;height:100%;background:#000;}
+.dom1{background:url(../img/page1_bg.jpg) center top;background-size:100% auto;text-align:center;}
+.dom1 img{width:100%;}
+.dom1_pic1{margin:0 auto;}
+.dom1_pic2{position:absolute;left:0;}
+
+.dom2{background:url(../img/page2_bg.jpg) center center;background-size:100% auto;}
+.dom2_pic1{position:absolute;}
+.dom2_pic2{position:absolute;left:0;}
+.dom2_pic3{position:absolute;left:0;}
+
+.dom3{background:url(../img/page3_bg.jpg) center center;background-size:100% auto;}
+.dom3_pic1{position:absolute;right:0;top:0;}
+.dom3_pic2{position:absolute;}
+.dom3_pic3{position:absolute;}
+
+.dom4{background:url(../img/page4_bg.jpg) center center;background-size:100% auto;}
+.dom4_pic1{position:absolute;}
+.dom4_pic2{position:absolute;}
+.dom4_pic3{position:absolute;right:0;}
+
+.dom5{background:url(../img/page5_bg.jpg) center center;background-size:100% auto;}
+.dom5_pic1{}
+.dom5_pic2{}
+.dom5_pic3{position:absolute;}
+.dom5_pic4{position:absolute;}
+
+.dom6{background:#fff;}
+.dom6_pic1{position:absolute;}
+.dom6_pic2{position:absolute;}
+
+
+
+
