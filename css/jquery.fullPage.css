@@ -30,8 +30,8 @@ body{padding:0;margin:0;}
 .dom5_pic2{width:1440px;}
 .dom5_pic3{width:372px;position:absolute;}
 .dom5_pic4{width:420px;position:absolute;}
-.dom5_pic5{width:362px;}
-.dom5_pic6{width:80px;}
+.dom5_pic5{width:362px;position:absolute;}
+#dom5_pic6{position:absolute;}
 .dom5 a:hover img{background:rgba(255,255,255,0.3);}
 
 .dom6{background:#171717;}

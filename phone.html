@@ -139,7 +139,7 @@
 				$(".swiper-pagination").find("span:eq(5)").click().click();
 			});
 			$("#qrcode").click(function(){
-				$(".swiper-pagination").find("span:eq(5)").click().click();
+				$(".swiper-pagination").find("span:eq(0)").click().click();
 			});
 		});
 		$(window).resize(function(){
@@ -175,13 +175,14 @@
 			var m=$(window).width()/624;
 			var ml=($(window).width()-440*m)/2;
 			$(".dom5_pic1").css("width",550*n).css("margin-top",n*230);
-			$(".dom5_pic2").css("width",730*n).css("margin-top",n*330);
+			$(".dom5_pic2").css("width",730*n).css("margin-top",n*280);
 			$(".dom5_pic3").css("width",440*m).css("left",ml).css("bottom",n*120);
-			$(".dom5_pic4").css("width",50*m).css("left",ml+m*230).css("bottom",n*100);
+			$(".dom5_pic4").css("width",50*m).css("right",n*50).css("bottom",n*50);
 		}
 		function dom6(n){
-			$(".dom6_pic1").css("width",520*n).css("top",n*200).css("left",n*50);
-			$(".dom6_pic2").css("width",140*n).css("top",n*200).css("right",n*50);
+			var m=$(window).width()/624;
+			$(".dom6_pic1").css("width",520*m).css("top",n*200).css("left",n*50);
+			$(".dom6_pic2").css("width",140*m).css("top",n*200).css("right",n*50);
 		}
 	</script>
     

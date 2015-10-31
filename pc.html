@@ -205,39 +205,14 @@ function dom5(n){
 	$(".dom5_pic2").css("width",1440*n).css("margin-left",ml2).css("margin-top",80*n);
 	$(".dom5_pic3").css("width",372*n).css("left",300*n).css("bottom",40*n);
 	$(".dom5_pic4").css("width",440*n).css("left",ml3).css("bottom",40*n);
-	$("#dom5_pic5").css("right",230*n).css("bottom",40*n);
-	$(".dom5_pic5").css("width",362*n);
+	$(".dom5_pic5").css("width",362*n).css("bottom",40*n).css("right",300*n);
 	$(".dom5_pic6").css("width",80*n);
+	$("#dom5_pic6").css("right",50*n).css("bottom",40*n);
 }
 function dom6(n){
 	$(".dom6_pic2").css("width",224*n).css("bottom",60*n).css("right",270*n);
 	$(".dom6_pic1").css("width",520*n).css("margin-left",270*n).css("margin-top",60*n).css("margin-bottom",60*n);
 	$(".dom6").height(380*n);
-}
-
-function zoom2(strId,strNum){
-	
-	var str=strNum;
-	if($.support.msie){ 
-		$(strId).css("-ms-transform","scale("+str+")"); 
-		$(strId).css("-ms-transform-origin","top center");
-	} 
-	else if($.support.safari){ 
-		$(strId).css("-webkit-transform","scale("+str+")"); 
-		$(strId).css("-webkit-transform-origin","top center");
-	} 
-	else if($.support.mozilla) { 
-		$(strId).css("-moz-transform","scale("+str+")"); 
-		$(strId).css("-moz-transform-origin","top center");
-	} 
-	else if($.support.opera) { 
-		$(strId).css("-o-transform","scale("+str+")"); 
-		$(strId).css("-o-transform-origin","top center");
-	} 
-	else { 
-		$(strId).css("transform","scale("+str+")"); 
-		$(strId).css("transform-origin","top center");
-	}
 }
 
 </script>
@@ -258,7 +233,7 @@ function zoom2(strId,strNum){
 </div>
 
 <div id="main_guide" num="1">
-	<div class="back dom1">
+	<div class="back dom1" id="J-1">
         <div class="area" style="">
 			<div class="cnt">
                 <span><img src="images/page1_pic.png" style="width:1024px;"></span>
@@ -293,9 +268,10 @@ function zoom2(strId,strNum){
             <img src="images/page5_pic2.png" class="dom5_pic2">
             <img src="images/page5_pic3.png" class="dom5_pic3">
             <img src="images/page5_pic4.png" class="dom5_pic4">
-            <span id="dom5_pic5"><img src="images/page5_pic5.png" class="dom5_pic5"><a href="#J-6"><img src="images/page5_pic6.png" class="dom5_pic6"></a></span>
+            <img src="images/page5_pic5.png" class="dom5_pic5">
+            <a href="#J-1" id="dom5_pic6"><img src="images/page5_pic6.png" class="dom5_pic6"></a>
         </div>
-    </div>
+  </div>
     <div class="back dom6"  id="J-6">
         <div class="area" style="">
 			<img src="images/page6_pic1.png" class="dom6_pic1">
